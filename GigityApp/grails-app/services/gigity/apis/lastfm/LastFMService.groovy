@@ -15,48 +15,7 @@ class LastFMService {
 
         log.info("Getting artist events")
 
-        //http://ws.audioscrobbler.com/2.0/?method=artist.getevents&artist=Kasabian&api_key=9f37555b8a6281942d742327fba9075e
-        //def result = new URL("http://ws.audioscrobbler.com/2.0/?method=artist.getevents&artist=${artist}&api_key=9f37555b8a6281942d742327fba9075e").text
-
         String url = "http://ws.audioscrobbler.com/2.0/?method=artist.getevents&artist=${artist}&api_key=9f37555b8a6281942d742327fba9075e"
-
-        //         //parse xml
-        //
-        //        def xml = new XmlSlurper().parseText(result)
-        //
-        //
-        //        List eventsList = []
-        //
-        //        xml.events.event.each{
-        //
-        //            //imageUrl
-        //            String img
-        //            it?.image.each{ imgUrl ->
-        //                img = imgUrl
-        //            }
-        //
-        //            Venue v = new Venue(name: it?.venue.name,
-        //                                city: it?.venue?.location?.city,
-        //                                country: it?.venue?.location?.country,
-        //                                latitude: it?.venue?.location?."point"?."lat",
-        //                                longitude: it?.venue?.location?."point"?."long",
-        //                                website: it?.venue?.website,
-        //                                )
-        //            List artists = []
-        //            xml.events.event.artists.each{
-        //                Artist a = new Artist(name: it.artist)
-        //                artists << a
-        //            }
-        //
-        //
-        //            Event e = new Event(eventName: it.title, venue: v, artists: artists, imageUrl: img, startDate: it.startDate, endDate: it.endDate)
-        //            eventsList << e
-        //        }
-        //
-        //
-        //        log.info("got ${eventsList.size()} artist events")
-        //
-        //        return eventsList
 
         def eventsList = parseEvents(url)
 
